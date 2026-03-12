@@ -1,0 +1,27 @@
+{
+  "name": "Timeclock — Work Hours Tracker",
+  "short_name": "Timeclock",
+  "description": "Personal work hours tracker with AM/PM clock-in and out",
+  "start_url": "/time_clock/",
+  "scope": "/time_clock/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0c0f",
+  "theme_color": "#0a0c0f",
+  "icons": [
+    {
+      "src": "/time_clock/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/time_clock/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["productivity", "utilities"],
+  "lang": "en"
+}
