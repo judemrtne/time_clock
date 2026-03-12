@@ -94,14 +94,14 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 .tstat-lbl{display:block;font-family:var(--mono);font-size:9px;color:var(--text-dim);letter-spacing:.12em;text-transform:uppercase;margin-top:3px;}
 
 /* BOTTOM NAV */
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);background:var(--surface);border-top:1px solid var(--border);display:none;z-index:200;}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);background:var(--surface);border-top:1px solid var(--border);display:block;z-index:200;}
 .nav-tabs{display:flex;height:100%;}
 .nav-tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:none;border:none;cursor:pointer;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);transition:color .15s;}
 .nav-tab.active{color:var(--amber);}
 .nav-tab .ni{font-size:20px;line-height:1;}
 
 /* LAYOUT */
-.app-body{max-width:1100px;margin:0 auto;padding:24px 20px 32px;}
+.app-body{max-width:1100px;margin:0 auto;padding:24px 20px calc(var(--nav-h) + 16px);}
 .page{display:block;}
 .page.hidden{display:none;}
 
@@ -304,7 +304,7 @@ tr:hover td{background:rgba(255,255,255,.018);}
 @media(max-width:680px){
   .app-header{padding:0 14px;}
   .brand h1{font-size:22px;}
-  .app-body{padding:14px 12px 80px;}
+  .app-body{padding:14px 12px calc(var(--nav-h) + 12px);}
   .total-banner{padding:14px;}
   .total-value{font-size:44px;}
   .total-right{gap:18px;}
@@ -319,7 +319,6 @@ tr:hover td{background:rgba(255,255,255,.018);}
   .past-hint{display:none;}
   .tbl-scroll{display:none;}
   .card-list{display:block;}
-  .bottom-nav{display:block;}
 }
 @media(max-width:380px){
   .total-value{font-size:36px;}
@@ -738,7 +737,7 @@ tr:hover td{background:rgba(255,255,255,.018);}
       <span class="ni">✏️</span>Log
     </button>
     <button class="nav-tab" id="navHistory" onclick="gotoPage('history')">
-      <span class="ni">📋</span>History
+      <span class="ni">📋</span>Records
     </button>
     <button class="nav-tab" id="navMessages" onclick="gotoPage('messages')">
       <span class="ni">💬</span>Messages
@@ -984,6 +983,19 @@ setInterval(tick,1000); tick();
 const PAGES={clock:'pageClock',log:'pageLog',history:'pageHistory',messages:'pageMessages',admin:'pageAdmin'};
 const NAVS={clock:'navClock',log:'navLog',history:'navHistory',messages:'navMessages',admin:'navAdmin'};
 function gotoPage(name){
+  const isDesktop = window.innerWidth > 680;
+  if(isDesktop && name !== 'messages' && name !== 'admin'){
+    // On desktop, restore the normal multi-page layout
+    ['pageClock','pageHistory'].forEach(id=>document.getElementById(id).classList.remove('hidden'));
+    document.getElementById('pageMessages').classList.add('hidden');
+    document.getElementById('pageAdmin').classList.add('hidden');
+    Object.values(NAVS).forEach(id=>{const el=document.getElementById(id);if(el)el.classList.remove('active');});
+    // Highlight both clock and history as "active" doesn't quite apply — just set the closest
+    const nav=document.getElementById(NAVS[name]);if(nav)nav.classList.add('active');
+    if(name==='log'){prefillPast();}
+    return;
+  }
+  // Mobile OR navigating to a dedicated page (messages / admin)
   Object.values(PAGES).forEach(id=>document.getElementById(id).classList.add('hidden'));
   document.getElementById(PAGES[name]).classList.remove('hidden');
   Object.values(NAVS).forEach(id=>{const el=document.getElementById(id);if(el)el.classList.remove('active');});
@@ -1407,7 +1419,8 @@ function toast(msg,type='inf'){
 // ═══════════════════════════════════════════
 function setupDesktop(){
   if(window.innerWidth>680){
-    Object.values(PAGES).forEach(id=>document.getElementById(id).classList.remove('hidden'));
+    // Only show the core pages inline on desktop; Messages and Admin stay as separate navigable pages
+    ['pageClock','pageLog','pageHistory'].forEach(id=>document.getElementById(id).classList.remove('hidden'));
     const pp=document.getElementById('pastPanel');
     document.getElementById('pageClock').appendChild(pp);
     pp.classList.add('open');prefillPast();
