@@ -327,6 +327,72 @@ tr:hover td{background:rgba(255,255,255,.018);}
   .tstat{display:none;}
   .tstat:first-child{display:block;}
 }
+
+/* ── NAV BADGE ── */
+.nav-badge{position:absolute;top:6px;right:calc(50% - 18px);background:var(--red);color:#fff;font-size:8px;font-family:var(--mono);font-weight:700;border-radius:8px;min-width:14px;height:14px;line-height:14px;text-align:center;padding:0 3px;display:none;}
+.nav-badge.show{display:block;}
+.nav-tab{position:relative;}
+
+/* ── MESSAGES ── */
+.msg-tabs{display:flex;gap:0;background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:3px;margin-bottom:18px;}
+.msg-tab{flex:1;padding:8px 10px;border:none;background:none;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);border-radius:5px;cursor:pointer;transition:all .2s;}
+.msg-tab.active{background:var(--amber);color:#000;font-weight:700;}
+.msg-list{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+.msg-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;cursor:pointer;transition:border-color .2s,background .2s;}
+.msg-item:hover{border-color:var(--amber);background:rgba(240,165,0,.03);}
+.msg-item.unread{border-left:3px solid var(--amber);}
+.msg-item-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.msg-from{font-family:var(--mono);font-size:11px;color:var(--amber);letter-spacing:.06em;}
+.msg-from.unread-lbl{font-weight:700;}
+.msg-time{font-family:var(--mono);font-size:9px;color:var(--text-dim);}
+.msg-preview{font-size:12px;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.4;}
+.msg-preview.unread-preview{color:var(--text);}
+.msg-empty{padding:40px;text-align:center;font-family:var(--mono);font-size:11px;color:var(--text-dim);letter-spacing:.1em;}
+.compose-form{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;}
+.compose-field{margin-bottom:16px;}
+.compose-field label{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.15em;color:var(--text-muted);text-transform:uppercase;margin-bottom:6px;}
+.compose-field select,.compose-field textarea,.compose-field input[type=text]{width:100%;background:var(--panel);border:1px solid var(--border-bright);border-radius:7px;padding:11px 14px;color:var(--text);font-family:var(--mono);font-size:13px;outline:none;transition:border-color .2s,box-shadow .2s;}
+.compose-field select:focus,.compose-field textarea:focus{border-color:var(--amber);box-shadow:0 0 0 3px var(--amber-glow);}
+.compose-field textarea{resize:vertical;min-height:120px;line-height:1.5;}
+.compose-field select option{background:var(--panel);}
+.btn-send{padding:12px 28px;background:var(--amber);border:none;border-radius:7px;color:#000;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:background .15s,transform .1s;}
+.btn-send:hover{background:#ffb800;transform:translateY(-1px);}
+.btn-send:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+.msg-detail-back{background:none;border:1px solid var(--border-bright);border-radius:6px;padding:7px 14px;color:var(--text-muted);font-family:var(--mono);font-size:10px;letter-spacing:.1em;cursor:pointer;margin-bottom:16px;transition:all .15s;}
+.msg-detail-back:hover{border-color:var(--amber);color:var(--amber);}
+.msg-detail-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px;}
+.msg-detail-meta{font-family:var(--mono);font-size:10px;color:var(--text-dim);line-height:2;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+.msg-detail-meta strong{color:var(--text-muted);}
+.msg-detail-body{font-size:13px;line-height:1.65;color:var(--text);white-space:pre-wrap;word-break:break-word;}
+
+/* ── ADMIN ── */
+.admin-section{margin-bottom:28px;}
+.admin-section-title{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--amber);text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:14px;}
+.admin-section-title::before{content:'';display:block;width:3px;height:13px;background:var(--amber);border-radius:2px;}
+.admin-users-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;}
+.admin-user-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:border-color .2s;}
+.admin-user-card:hover{border-color:var(--amber);}
+.auc-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.auc-avatar{width:36px;height:36px;border-radius:50%;background:var(--panel);border:2px solid var(--border-bright);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:14px;color:var(--amber);flex-shrink:0;}
+.auc-name{font-family:var(--mono);font-size:12px;color:var(--text);font-weight:600;}
+.auc-email{font-family:var(--mono);font-size:9px;color:var(--text-dim);letter-spacing:.05em;}
+.auc-role{display:inline-block;font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:4px;}
+.auc-role.admin{background:rgba(240,165,0,.15);color:var(--amber);border:1px solid rgba(240,165,0,.3);}
+.auc-role.user{background:rgba(125,133,144,.1);color:var(--text-muted);border:1px solid var(--border);}
+.auc-stats{display:flex;gap:14px;padding-top:10px;border-top:1px solid var(--border);}
+.aus-item label{display:block;font-family:var(--mono);font-size:8px;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px;}
+.aus-item span{font-family:var(--display);font-size:20px;color:var(--green);letter-spacing:.04em;}
+.admin-logs-table{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.admin-filter{display:flex;gap:10px;flex-wrap:wrap;padding:14px 16px;border-bottom:1px solid var(--border);}
+.admin-filter select,.admin-filter input{background:var(--panel);border:1px solid var(--border-bright);border-radius:6px;padding:8px 13px;color:var(--text);font-family:var(--mono);font-size:12px;outline:none;flex:1;min-width:120px;}
+.admin-filter select:focus,.admin-filter input:focus{border-color:var(--amber);}
+.admin-role-btn{padding:5px 12px;border-radius:5px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .15s;background:none;}
+.admin-role-btn.promote{border:1px solid var(--green-dim);color:var(--green);}
+.admin-role-btn.promote:hover{background:rgba(63,185,80,.1);}
+.admin-role-btn.demote{border:1px solid var(--red-dim);color:var(--red);}
+.admin-role-btn.demote:hover{background:rgba(248,81,73,.1);}
+.admin-access-denied{text-align:center;padding:60px 20px;font-family:var(--mono);color:var(--text-dim);letter-spacing:.1em;}
+.admin-access-denied h2{font-family:var(--display);font-size:32px;color:var(--red);margin-bottom:12px;letter-spacing:.1em;}
 </style>
 </head>
 <body>
@@ -584,6 +650,82 @@ tr:hover td{background:rgba(255,255,255,.018);}
     </div>
   </div>
 
+
+  <!-- MESSAGES PAGE -->
+  <div class="page hidden" id="pageMessages">
+    <div class="msg-tabs">
+      <button class="msg-tab active" id="msgTabInbox"   onclick="switchMsgView('inbox')">📥 Inbox</button>
+      <button class="msg-tab"        id="msgTabSent"    onclick="switchMsgView('sent')">📤 Sent</button>
+      <button class="msg-tab"        id="msgTabCompose" onclick="switchMsgView('compose')">✏️ Compose</button>
+    </div>
+    <div id="msgViewInbox">
+      <div class="msg-list" id="inboxList"></div>
+    </div>
+    <div id="msgViewSent" style="display:none">
+      <div class="msg-list" id="sentList"></div>
+    </div>
+    <div id="msgViewCompose" style="display:none">
+      <div class="compose-form">
+        <div class="compose-field">
+          <label>To</label>
+          <select id="composeTo"><option value="">Select recipient…</option></select>
+        </div>
+        <div class="compose-field">
+          <label>Message</label>
+          <textarea id="composeBody" placeholder="Write your message here…"></textarea>
+        </div>
+        <button class="btn-send" id="btnSend" onclick="sendMessage()">SEND MESSAGE</button>
+      </div>
+    </div>
+    <div id="msgViewDetail" style="display:none">
+      <button class="msg-detail-back" id="msgDetailBack" onclick="closeMsgDetail()">← Back</button>
+      <div class="msg-detail-card">
+        <div class="msg-detail-meta" id="msgDetailMeta"></div>
+        <div class="msg-detail-body" id="msgDetailBody"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN PAGE -->
+  <div class="page hidden" id="pageAdmin">
+    <div id="adminDenied" style="display:none" class="admin-access-denied">
+      <h2>ACCESS DENIED</h2>
+      <p>You do not have administrator privileges.</p>
+    </div>
+    <div id="adminDashboard" style="display:none">
+      <div class="weekly-strip" style="margin-bottom:20px">
+        <div class="wstat"><label>Total Users</label><span id="adminStatUsers">—</span></div>
+        <div class="wstat"><label>Total Records</label><span id="adminStatRecords">—</span></div>
+        <div class="wstat"><label>Total Hours</label><span id="adminStatHours">—</span></div>
+      </div>
+      <div class="admin-section">
+        <div class="admin-section-title">User Management</div>
+        <div class="admin-users-grid" id="adminUserGrid"></div>
+      </div>
+      <div class="admin-section">
+        <div class="admin-section-title">All Time Logs</div>
+        <div class="admin-logs-table">
+          <div class="admin-filter">
+            <select id="adminFilterUser" onchange="renderAdminLogs()">
+              <option value="">All Users</option>
+            </select>
+            <input type="month" id="adminFilterMonth" onchange="renderAdminLogs()">
+          </div>
+          <div class="tbl-scroll" style="max-height:480px">
+            <table>
+              <thead><tr>
+                <th>User</th><th>Date</th><th>Day</th>
+                <th>AM IN</th><th>AM OUT</th><th>PM IN</th><th>PM OUT</th>
+                <th>Morning</th><th>Afternoon</th><th>Total</th>
+              </tr></thead>
+              <tbody id="adminLogsBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div><!-- /app-body -->
 
 <!-- BOTTOM NAV (mobile only) -->
@@ -593,10 +735,17 @@ tr:hover td{background:rgba(255,255,255,.018);}
       <span class="ni">⏱</span>Clock
     </button>
     <button class="nav-tab" id="navLog" onclick="gotoPage('log')">
-      <span class="ni">✏️</span>Log Past
+      <span class="ni">✏️</span>Log
     </button>
     <button class="nav-tab" id="navHistory" onclick="gotoPage('history')">
       <span class="ni">📋</span>History
+    </button>
+    <button class="nav-tab" id="navMessages" onclick="gotoPage('messages')">
+      <span class="ni">💬</span>Messages
+      <span class="nav-badge" id="navMsgBadge"></span>
+    </button>
+    <button class="nav-tab" id="navAdmin" onclick="gotoPage('admin')" style="display:none">
+      <span class="ni">🛡</span>Admin
     </button>
   </div>
 </nav>
@@ -756,12 +905,14 @@ async function onSignedIn(user){
   document.getElementById('empName').value=displayName;
   showLoading('Loading your records…');
   await loadUserData();
+  // Load role
+  await loadUserRole();
   hideLoading();
   setupDesktop();
   updateUI(); updateTotals(); updateWeekly();
   renderTable(); renderCards();
   updateConnectionUI();
-  if(navigator.onLine) syncPendingQueue();
+  if(navigator.onLine){ syncPendingQueue(); await loadUnreadCount(); }
 }
 function resetAppUI(){
   ['lAmIn','lAmOut','lPmIn','lPmOut'].forEach(id=>{
@@ -830,15 +981,17 @@ setInterval(tick,1000); tick();
 // ═══════════════════════════════════════════
 //  PAGE NAV
 // ═══════════════════════════════════════════
-const PAGES={clock:'pageClock',log:'pageLog',history:'pageHistory'};
-const NAVS={clock:'navClock',log:'navLog',history:'navHistory'};
+const PAGES={clock:'pageClock',log:'pageLog',history:'pageHistory',messages:'pageMessages',admin:'pageAdmin'};
+const NAVS={clock:'navClock',log:'navLog',history:'navHistory',messages:'navMessages',admin:'navAdmin'};
 function gotoPage(name){
   Object.values(PAGES).forEach(id=>document.getElementById(id).classList.add('hidden'));
   document.getElementById(PAGES[name]).classList.remove('hidden');
-  Object.values(NAVS).forEach(id=>document.getElementById(id).classList.remove('active'));
-  document.getElementById(NAVS[name]).classList.add('active');
+  Object.values(NAVS).forEach(id=>{const el=document.getElementById(id);if(el)el.classList.remove('active');});
+  const nav=document.getElementById(NAVS[name]);if(nav)nav.classList.add('active');
   if(name==='history'){renderTable();renderCards();}
   if(name==='log'){prefillPast();}
+  if(name==='messages'){loadMessages();}
+  if(name==='admin'){loadAdminDashboard();}
 }
 
 // ═══════════════════════════════════════════
@@ -1303,6 +1456,267 @@ window.addEventListener('resize',()=>{
   if(window.innerWidth<=680&&lastW>680){location.reload();}
   lastW=window.innerWidth;
 });
+
+// ═══════════════════════════════════════════
+//  ROLE / PROFILE
+// ═══════════════════════════════════════════
+let currentRole = 'user';
+let allUsers = []; // {id, display_name, email, role}
+let allAdminLogs = []; // {user_id, display_name, date, am_in, am_out, pm_in, pm_out}
+
+async function loadUserRole(){
+  try{
+    // Ensure profile row exists
+    await sb.from('profiles').upsert({
+      id: currentUser.id,
+      display_name: displayName,
+      email: currentUser.email
+    },{onConflict:'id',ignoreDuplicates:true});
+    const {data}=await sb.from('profiles').select('role').eq('id',currentUser.id).single();
+    currentRole = data?.role || 'user';
+    const adminNav = document.getElementById('navAdmin');
+    if(adminNav) adminNav.style.display = currentRole==='admin'?'':'none';
+  }catch(e){ currentRole='user'; }
+}
+
+// ═══════════════════════════════════════════
+//  MESSAGING
+// ═══════════════════════════════════════════
+let messages_inbox=[], messages_sent=[], msgCurrentView='inbox', msgPreviewView='inbox';
+
+function switchMsgView(view){
+  msgCurrentView=view;
+  ['inbox','sent','compose','detail'].forEach(v=>{
+    const el=document.getElementById(`msgView${v.charAt(0).toUpperCase()+v.slice(1)}`);
+    if(el)el.style.display=v===view?'':'none';
+  });
+  ['inbox','sent','compose'].forEach(v=>{
+    document.getElementById(`msgTab${v.charAt(0).toUpperCase()+v.slice(1)}`).classList.toggle('active',v===view);
+  });
+  if(view==='compose')loadComposeRecipients();
+}
+
+function closeMsgDetail(){
+  switchMsgView(msgPreviewView);
+}
+
+async function loadMessages(){
+  if(!currentUser||!navigator.onLine){ renderInbox(); renderSent(); return; }
+  const [inboxRes, sentRes] = await Promise.all([
+    sb.from('messages').select('*').eq('receiver_id',currentUser.id).order('created_at',{ascending:false}),
+    sb.from('messages').select('*').eq('sender_id',currentUser.id).order('created_at',{ascending:false})
+  ]);
+  messages_inbox = inboxRes.data||[];
+  messages_sent  = sentRes.data||[];
+  renderInbox();
+  renderSent();
+  updateUnreadBadge();
+}
+
+async function loadUnreadCount(){
+  if(!currentUser)return;
+  const {data}=await sb.from('messages').select('id').eq('receiver_id',currentUser.id).eq('is_read',false);
+  const count=(data||[]).length;
+  const badge=document.getElementById('navMsgBadge');
+  if(badge){badge.textContent=count||'';badge.classList.toggle('show',count>0);}
+}
+
+function updateUnreadBadge(){
+  const count=messages_inbox.filter(m=>!m.is_read).length;
+  const badge=document.getElementById('navMsgBadge');
+  if(badge){badge.textContent=count||'';badge.classList.toggle('show',count>0);}
+}
+
+function fmtMsgTime(ts){
+  if(!ts)return'';
+  const d=new Date(ts);
+  const now=new Date();
+  const diff=(now-d)/1000;
+  if(diff<60)return'Just now';
+  if(diff<3600)return`${Math.floor(diff/60)}m ago`;
+  if(diff<86400)return`${Math.floor(diff/3600)}h ago`;
+  return d.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+}
+
+function getUserName(userId){
+  const u=allUsers.find(x=>x.id===userId);
+  return u?u.display_name:userId.slice(0,8)+'…';
+}
+
+function renderInbox(){
+  const el=document.getElementById('inboxList');
+  if(!messages_inbox.length){el.innerHTML='<div class="msg-empty">INBOX EMPTY</div>';return;}
+  el.innerHTML=messages_inbox.map(m=>`
+    <div class="msg-item${m.is_read?'':' unread'}" onclick="openMessage('${m.id}','inbox')">
+      <div class="msg-item-head">
+        <span class="msg-from${m.is_read?'':' unread-lbl'}">From: ${esc(getUserName(m.sender_id))}</span>
+        <span class="msg-time">${fmtMsgTime(m.created_at)}</span>
+      </div>
+      <div class="msg-preview${m.is_read?'':' unread-preview'}">${esc(m.message_content)}</div>
+    </div>`).join('');
+}
+
+function renderSent(){
+  const el=document.getElementById('sentList');
+  if(!messages_sent.length){el.innerHTML='<div class="msg-empty">NO SENT MESSAGES</div>';return;}
+  el.innerHTML=messages_sent.map(m=>`
+    <div class="msg-item" onclick="openMessage('${m.id}','sent')">
+      <div class="msg-item-head">
+        <span class="msg-from">To: ${esc(getUserName(m.receiver_id))}</span>
+        <span class="msg-time">${fmtMsgTime(m.created_at)}</span>
+      </div>
+      <div class="msg-preview">${esc(m.message_content)}</div>
+    </div>`).join('');
+}
+
+async function openMessage(id, fromView){
+  msgPreviewView=fromView;
+  const list=fromView==='inbox'?messages_inbox:messages_sent;
+  const msg=list.find(m=>m.id===id);
+  if(!msg)return;
+  const isInbox=fromView==='inbox';
+  const otherName=isInbox?getUserName(msg.sender_id):getUserName(msg.receiver_id);
+  document.getElementById('msgDetailMeta').innerHTML=
+    `<strong>${isInbox?'From':'To'}:</strong> ${esc(otherName)}<br>`+
+    `<strong>Date:</strong> ${new Date(msg.created_at).toLocaleString()}`;
+  document.getElementById('msgDetailBody').textContent=msg.message_content;
+  // Mark as read
+  if(isInbox&&!msg.is_read){
+    msg.is_read=true;
+    await sb.from('messages').update({is_read:true}).eq('id',id);
+    updateUnreadBadge();
+  }
+  // Show detail view (hide tabs, show back button in its place)
+  ['inbox','sent','compose'].forEach(v=>{
+    document.getElementById(`msgView${v.charAt(0).toUpperCase()+v.slice(1)}`).style.display='none';
+  });
+  document.getElementById('msgViewDetail').style.display='';
+}
+
+async function loadComposeRecipients(){
+  if(!allUsers.length){
+    const {data}=await sb.from('profiles').select('id,display_name,email').neq('id',currentUser.id);
+    allUsers=(data||[]);
+  }
+  const sel=document.getElementById('composeTo');
+  sel.innerHTML='<option value="">Select recipient…</option>'+
+    allUsers.map(u=>`<option value="${u.id}">${esc(u.display_name||u.email)}</option>`).join('');
+}
+
+async function sendMessage(){
+  const to=document.getElementById('composeTo').value;
+  const body=document.getElementById('composeBody').value.trim();
+  if(!to){toast('Select a recipient.','err');return;}
+  if(!body){toast('Message cannot be empty.','err');return;}
+  const btn=document.getElementById('btnSend');
+  btn.disabled=true; btn.textContent='SENDING…';
+  const{error}=await sb.from('messages').insert({
+    sender_id:currentUser.id, receiver_id:to,
+    message_content:body, is_read:false
+  });
+  btn.disabled=false; btn.textContent='SEND MESSAGE';
+  if(error){toast('Send failed: '+error.message,'err');return;}
+  document.getElementById('composeTo').value='';
+  document.getElementById('composeBody').value='';
+  toast('Message sent ✓','ok');
+  switchMsgView('sent');
+  await loadMessages();
+}
+
+// ═══════════════════════════════════════════
+//  ADMIN DASHBOARD
+// ═══════════════════════════════════════════
+let adminUsers=[], adminAllLogs=[];
+
+async function loadAdminDashboard(){
+  document.getElementById('adminDenied').style.display='none';
+  document.getElementById('adminDashboard').style.display='none';
+  if(currentRole!=='admin'){ document.getElementById('adminDenied').style.display=''; return; }
+  document.getElementById('adminDashboard').style.display='';
+  // Load all profiles
+  const {data:profiles}=await sb.from('profiles').select('*');
+  adminUsers=profiles||[];
+  // Load all time records
+  const {data:logs}=await sb.from('time_records').select('*').order('date',{ascending:false});
+  adminAllLogs=logs||[];
+  // Populate filter dropdown
+  const sel=document.getElementById('adminFilterUser');
+  sel.innerHTML='<option value="">All Users</option>'+
+    adminUsers.map(u=>`<option value="${u.id}">${esc(u.display_name||u.email)}</option>`).join('');
+  renderAdminUsers();
+  renderAdminLogs();
+  // Stats
+  let totalMin=0;
+  adminAllLogs.forEach(r=>{const h=calcH(r);if(h.tot)totalMin+=h.tot;});
+  document.getElementById('adminStatUsers').textContent=adminUsers.length;
+  document.getElementById('adminStatRecords').textContent=adminAllLogs.length;
+  document.getElementById('adminStatHours').textContent=fmtMin(totalMin);
+}
+
+function renderAdminUsers(){
+  const grid=document.getElementById('adminUserGrid');
+  grid.innerHTML=adminUsers.map(u=>{
+    const userLogs=adminAllLogs.filter(r=>r.user_id===u.id);
+    let totalMin=0;
+    userLogs.forEach(r=>{const h=calcH(r);if(h.tot)totalMin+=h.tot;});
+    const initials=(u.display_name||u.email||'?').slice(0,2).toUpperCase();
+    const isAdmin=u.role==='admin';
+    const isSelf=u.id===currentUser.id;
+    return`<div class="admin-user-card">
+      <div class="auc-head">
+        <div class="auc-avatar">${esc(initials)}</div>
+        <div>
+          <div class="auc-name">${esc(u.display_name||'—')}</div>
+          <div class="auc-email">${esc(u.email||'')}</div>
+        </div>
+        <span class="auc-role ${isAdmin?'admin':'user'}">${isAdmin?'Admin':'User'}</span>
+      </div>
+      <div class="auc-stats">
+        <div class="aus-item"><label>Days</label><span>${userLogs.length}</span></div>
+        <div class="aus-item"><label>Hours</label><span style="font-size:14px;font-family:var(--mono)">${fmtMin(totalMin)}</span></div>
+        ${!isSelf?`<div class="aus-item" style="margin-left:auto;align-self:center">
+          <button class="admin-role-btn ${isAdmin?'demote':'promote'}" onclick="toggleUserRole('${u.id}','${isAdmin?'user':'admin'}')">
+            ${isAdmin?'Revoke Admin':'Make Admin'}
+          </button></div>`:''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+async function toggleUserRole(userId, newRole){
+  if(!confirm(`Change this user's role to ${newRole}?`))return;
+  const{error}=await sb.from('profiles').update({role:newRole}).eq('id',userId);
+  if(error){toast('Failed: '+error.message,'err');return;}
+  toast(`Role updated to ${newRole} ✓`,'ok');
+  await loadAdminDashboard();
+}
+
+function renderAdminLogs(){
+  const filterUser=document.getElementById('adminFilterUser').value;
+  const filterMonth=document.getElementById('adminFilterMonth').value;
+  let logs=adminAllLogs;
+  if(filterUser) logs=logs.filter(r=>r.user_id===filterUser);
+  if(filterMonth) logs=logs.filter(r=>r.date&&r.date.startsWith(filterMonth));
+  const tbody=document.getElementById('adminLogsBody');
+  if(!logs.length){ tbody.innerHTML=`<tr><td colspan="10" class="empty-state"><p>NO RECORDS FOUND</p></td></tr>`; return; }
+  tbody.innerHTML=logs.map(r=>{
+    const h=calcH(r);
+    const uname=adminUsers.find(u=>u.id===r.user_id)?.display_name||r.user_id?.slice(0,8)+'…';
+    return`<tr>
+      <td class="c-emp">${esc(uname)}</td>
+      <td class="c-date">${r.date}</td>
+      <td class="c-day">${dayName(r.date)}</td>
+      <td class="c-am">${fmtTime(r.am_in)}</td>
+      <td class="c-am">${fmtTime(r.am_out)}</td>
+      <td class="c-pm">${fmtTime(r.pm_in)}</td>
+      <td class="c-pm">${fmtTime(r.pm_out)}</td>
+      <td class="c-hrs">${fmtMin(h.mo)}</td>
+      <td class="c-hrs">${fmtMin(h.af)}</td>
+      <td class="c-total">${fmtMin(h.tot)}</td>
+    </tr>`;
+  }).join('');
+}
+
 
 if('serviceWorker' in navigator){
   window.addEventListener('load',()=>{
